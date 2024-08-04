@@ -16,9 +16,16 @@ $sql = "INSERT INTO pendaftaran_mcu (nama, tempat_lahir, tanggal_lahir, nik, jen
         VALUES ('$nama', '$tempat_lahir', '$tanggal_lahir', '$nik', '$jenis_kelamin', '$umur', '$alamat', '$telepon')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Pendaftaran berhasil!";
+    echo "<script>
+        alert('Pendaftaran Berhasil');
+        window.location.href = 'index.html';
+    </script>";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    $error = $conn->error;
+    echo "<script>
+        alert('Pendaftaran Gagal: $error');
+        window.location.href = 'index.html';
+    </script>";
 }
 
 $conn->close();
