@@ -2,15 +2,15 @@
 include 'database.php';
 
 // Mengambil data dari form
-$nama = $_POST['nama'];
-$nama_orang_tua = $_POST['nama_orang_tua'];
-$nik = $_POST['nik'];
-$tempat_lahir = $_POST['tempat_lahir'];
-$tanggal_lahir = $_POST['tanggal_lahir'];
-$jenis_kelamin = $_POST['jenis_kelamin'];
-$alamat = $_POST['alamat'];
-$no_telepon = $_POST['no_telepon'];
-$perusahaan = $_POST['perusahaan'];
+$nama = htmlspecialchars($_POST['nama']);
+$nama_orang_tua = htmlspecialchars($_POST['nama_orang_tua']);
+$nik = htmlspecialchars($_POST['nik']);
+$tempat_lahir = htmlspecialchars($_POST['tempat_lahir']);
+$tanggal_lahir = htmlspecialchars($_POST['tanggal_lahir']);
+$jenis_kelamin = htmlspecialchars($_POST['jenis_kelamin']);
+$alamat = htmlspecialchars($_POST['alamat']);
+$no_telepon = htmlspecialchars($_POST['no_telepon']);
+$perusahaan = htmlspecialchars($_POST['perusahaan']);
 
 // Query untuk memasukkan data ke dalam tabel
 $sql = "INSERT INTO pendaftaran_umum (nama, nama_orang_tua, nik, tempat_lahir, tanggal_lahir, jenis_kelamin, alamat, no_telepon, perusahaan)
