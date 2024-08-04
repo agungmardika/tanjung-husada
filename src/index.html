@@ -1,419 +1,502 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Klinik Tabalong Husada</title>
-    <link
-      rel="shortcut icon"
-      href="../dist/img/logo.jpeg"
-      type="image/x-icon"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./output.css" />
-    <style>
-      .hero {
-        background-image: url("../dist/img/image.png");
-        background-size: cover;
-        background-position: center;
-        color: #ffffff;
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Klinik Tabalong Husada</title>
+  <link rel="shortcut icon" href="../dist/img/logo.jpeg" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./output.css" />
+  <style>
+    .hero {
+      background-image: url("../dist/img/image.png");
+      background-size: cover;
+      background-position: center;
+      color: #ffffff;
+    }
+
+    .modal {
+      display: none;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal .close-btn {
+      position: absolute;
+      top: 10px;
+      /* Sesuaikan sesuai kebutuhan */
+      right: 10px;
+      /* Sesuaikan sesuai kebutuhan */
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .modal-content {
+        width: 90%;
       }
-    </style>
-  </head>
-  <body class="bg-gray-100 font-body">
-    <!-- Navbar -->
-    <nav class="bg-[#16365d] text-white py-3 shadow-lg">
-      <div class="container mx-auto flex items-center justify-between">
-        <div class="flex items-center space-x-4">
-          <img src="../dist/img/logo.jpeg" alt="Logo" class="h-20" />
-          <div class="text-white uppercase">
-            <h1 class="text-3xl font-bold leading-tight">Klinik</h1>
-            <h1 class="text-2xl font-bold leading-tight">Tabalong Husada</h1>
+    }
+
+    @media (min-width: 769px) {
+      .modal-content {
+        width: 50%;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 font-body">
+  <!-- Navbar -->
+  <nav class="bg-[#16365d] text-white py-3 shadow-lg">
+    <div class="container mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+        <img src="../dist/img/logo.jpeg" alt="Logo" class="h-20" />
+        <div class="text-white uppercase">
+          <h1 class="text-3xl font-bold leading-tight">Klinik</h1>
+          <h1 class="text-2xl font-bold leading-tight">Tabalong Husada</h1>
+        </div>
+      </div>
+      <ul class="hidden md:flex space-x-6">
+        <li>
+          <a href="" class="hover:text-[#6f8e30] transition duration-300">Beranda</a>
+        </li>
+        <li>
+          <a href="#services" class="hover:text-[#6f8e30] transition duration-300">Layanan Kami</a>
+        </li>
+        <li>
+          <a href="#registration" class="hover:text-[#6f8e30] transition duration-300">Pendaftaran Online</a>
+        </li>
+        <li>
+          <a href="#contact" class="hover:text-[#6f8e30] transition duration-300">Kontak Kami</a>
+        </li>
+
+        <li>
+          <a href="#about" class="hover:text-[#6f8e30] transition duration-300">Tentang Kami</a>
+        </li>
+      </ul>
+      <div class="md:hidden">
+        <button id="menu-btn" class="text-black focus:outline-none">
+          Menu
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero h-[630px] flex items-center justify-center text-center bg-black bg-opacity-50">
+    <div class="p-6 rounded-lg bg-black bg-opacity-50">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4">
+        Klinik Tabalong Husada
+      </h2>
+      <p class="text-lg md:text-xl">Pelayanan Kesehatan Terbaik Untuk Anda</p>
+    </div>
+  </header>
+
+  <!-- Layanan Kami Section -->
+  <section id="services" class="p-6 bg-white">
+    <div class="container mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6">Layanan Kami</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="p-6 border rounded-lg hover:bg-gray-100 transition duration-300">
+          <h3 class="text-xl font-semibold mb-2">Dokter Umum</h3>
+          <p>Pelayanan medis oleh dokter umum berpengalaman.</p>
+        </div>
+        <div class="p-6 border rounded-lg hover:bg-gray-100 transition duration-300">
+          <h3 class="text-xl font-semibold mb-2">Dokter Gigi</h3>
+          <p>Perawatan dan pemeriksaan kesehatan gigi dan mulut.</p>
+        </div>
+        <div class="p-6 border rounded-lg hover:bg-gray-100 transition duration-300">
+          <h3 class="text-xl font-semibold mb-2">Rontgen</h3>
+          <p>Pemeriksaan radiologi dengan teknologi terbaru.</p>
+        </div>
+        <div class="p-6 border rounded-lg hover:bg-gray-100 transition duration-300">
+          <h3 class="text-xl font-semibold mb-2">Medical Check Up</h3>
+          <p>Pemeriksaan kesehatan menyeluruh untuk deteksi dini.</p>
+        </div>
+        <div class="p-6 border rounded-lg hover:bg-gray-100 transition duration-300">
+          <h3 class="text-xl font-semibold mb-2">Laboratorium</h3>
+          <p>Pelayanan laboratorium dengan hasil yang akurat dan cepat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dokter Section -->
+  <section id="doctors" class="p-6 bg-gray-200">
+    <div class="container mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center">
+        Dokter :
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white border rounded-lg shadow-lg overflow-hidden">
+          <img src="https://via.placeholder.com/500x300" alt="Dr.H.hari Oktavian" class="w-full h-40 object-cover" />
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">
+              Dr.H.hari Oktavian MM, Sp. PK
+            </h3>
+            <p class="text-gray-600">Spesialis Patologi Klinik</p>
           </div>
         </div>
-        <ul class="hidden md:flex space-x-6">
-          <li>
-            <a
-              href="#services"
-              class="hover:text-[#6f8e30] transition duration-300"
-              >Layanan Kami</a
-            >
-          </li>
-          <li>
-            <a
-              href="#registration"
-              class="hover:text-[#6f8e30] transition duration-300"
-              >Pendaftaran Online</a
-            >
-          </li>
-          <li>
-            <a
-              href="#contact"
-              class="hover:text-[#6f8e30] transition duration-300"
-              >Kontak Kami</a
-            >
-          </li>
+        <!-- Doctor Card -->
+        <div class="bg-white border rounded-lg shadow-lg overflow-hidden">
+          <img src="https://via.placeholder.com/500x300" alt="Drg. Agung Budiarto" class="w-full h-40 object-cover" />
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Drg. Agung Budiarto</h3>
+            <p class="text-gray-600">Dokter Gigi</p>
+          </div>
+        </div>
+        <!-- Doctor Card -->
+        <div class="bg-white border rounded-lg shadow-lg overflow-hidden">
+          <img src="https://via.placeholder.com/500x300" alt="Dr. Yusriza Febri Ramadhan"
+            class="w-full h-40 object-cover" />
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">
+              Dr. Yusriza Febri Ramadhan
+            </h3>
+            <p class="text-gray-600">Dokter Umum</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <li>
-            <a
-              href="#about"
-              class="hover:text-[#6f8e30] transition duration-300"
-              >Tentang Kami</a
-            >
-          </li>
-        </ul>
-        <div class="md:hidden">
-          <button id="menu-btn" class="text-black focus:outline-none">
-            Menu
+  <!-- Pendaftaran Online Section -->
+  <section id="registration" class="p-6 bg-white">
+    <div class="container mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6">Pendaftaran Online</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="p-6 border rounded-lg hover:bg-gray-100 transition duration-300">
+          <h3 class="text-xl font-semibold mb-2">Pasien Umum</h3>
+          <p>Daftarkan diri Anda sebagai pasien umum secara online.</p>
+          <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded" onclick="openModal('modalUmum')">
+            Daftar Pasien Umum
+          </button>
+        </div>
+        <div class="p-6 border rounded-lg hover:bg-gray-100 transition duration-300">
+          <h3 class="text-xl font-semibold mb-2">Medical Check Up (MCU)</h3>
+          <p>Daftarkan diri Anda untuk Medical Check Up (MCU) secara online.</p>
+          <button class="mt-4  text-black rounded" onclick="openModal('modalMCU')">
+            Daftar MCU
           </button>
         </div>
       </div>
-    </nav>
+    </div>
+  </section>
 
-    <!-- Hero Section -->
-    <header
-      class="hero h-[630px] flex items-center justify-center text-center bg-black bg-opacity-50"
-    >
-      <div class="p-6 rounded-lg bg-black bg-opacity-50">
-        <h2 class="text-3xl md:text-5xl font-bold mb-4">
-          Klinik Tabalong Husada
-        </h2>
-        <p class="text-lg md:text-xl">Pelayanan Kesehatan Terbaik Untuk Anda</p>
-      </div>
-    </header>
-
-    <!-- Layanan Kami Section -->
-    <section id="services" class="p-6 bg-white">
-      <div class="container mx-auto">
-        <h2 class="text-2xl md:text-3xl font-bold mb-6">Layanan Kami</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div
-            class="p-6 border rounded-lg hover:bg-gray-100 transition duration-300"
-          >
-            <h3 class="text-xl font-semibold mb-2">Dokter Umum</h3>
-            <p>Pelayanan medis oleh dokter umum berpengalaman.</p>
-          </div>
-          <div
-            class="p-6 border rounded-lg hover:bg-gray-100 transition duration-300"
-          >
-            <h3 class="text-xl font-semibold mb-2">Dokter Gigi</h3>
-            <p>Perawatan dan pemeriksaan kesehatan gigi dan mulut.</p>
-          </div>
-          <div
-            class="p-6 border rounded-lg hover:bg-gray-100 transition duration-300"
-          >
-            <h3 class="text-xl font-semibold mb-2">Rontgen</h3>
-            <p>Pemeriksaan radiologi dengan teknologi terbaru.</p>
-          </div>
-          <div
-            class="p-6 border rounded-lg hover:bg-gray-100 transition duration-300"
-          >
-            <h3 class="text-xl font-semibold mb-2">Medical Check Up</h3>
-            <p>Pemeriksaan kesehatan menyeluruh untuk deteksi dini.</p>
-          </div>
-          <div
-            class="p-6 border rounded-lg hover:bg-gray-100 transition duration-300"
-          >
-            <h3 class="text-xl font-semibold mb-2">Laboratorium</h3>
-            <p>Pelayanan laboratorium dengan hasil yang akurat dan cepat.</p>
-          </div>
+  <!-- Contact & Hours Section -->
+  <section id="contact-hours" class="p-6 bg-white">
+    <div class="container mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center">
+        Kontak & Jam Layanan
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Contact Information -->
+        <div class="bg-[#f8f9fa] p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-semibold mb-4">Kontak Kami</h3>
+          <p class="mb-2">
+            <span class="font-bold">No HP:</span> 0813-4686-4988
+          </p>
+          <p class="mb-2">
+            <span class="font-bold">Email:</span>
+            <a href="mailto:info@klinik-tabalonghusada.com"
+              class="text-[#6f8e30] hover:underline">info@klinik-tabalonghusada.com</a>
+          </p>
+          <p>
+            <span class="font-bold">Alamat:</span> Jalan Ir. PHM Noor RT.01
+            No. 71 Kota Tanjung Kabupaten Tabalong
+          </p>
+        </div>
+        <!-- Hours of Operation -->
+        <div class="bg-[#f8f9fa] p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-semibold mb-4">Jam Layanan</h3>
+          <p class="mb-2"><span class="font-bold">Senin s/d Jumat:</span></p>
+          <p>Pagi 08.00 – 12.00</p>
+          <p>Sore 16.00 – 21.00</p>
+          <p class="mt-4"><span class="font-bold">Sabtu:</span></p>
+          <p>Pagi 08.00 – 12.00</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Dokter Section -->
-    <section id="doctors" class="p-6 bg-gray-200">
-      <div class="container mx-auto">
-        <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center">
-          Dokter Kami
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Doctor Card -->
-          <div class="bg-white border rounded-lg shadow-lg overflow-hidden">
-            <img
-              src="https://via.placeholder.com/500x300"
-              alt="Dr.H.hari Oktavian"
-              class="w-full h-40 object-cover"
-            />
-            <div class="p-6">
-              <h3 class="text-xl font-semibold mb-2">
-                Dr.H.hari Oktavian MM, Sp. PK
-              </h3>
-              <p class="text-gray-600">Spesialis Patologi Klinik</p>
+  <!-- Tentang Kami Section -->
+  <!-- About & Vision-Mission Section -->
+  <section id="about-vision-mission" class="py-8 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-8 text-center text-[#16365d]">
+        Tentang Kami & Visi & Misi
+      </h2>
+      <div class="space-y-8 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-8">
+        <!-- About Us -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-2xl font-semibold mb-4 text-[#16365d]">
+            Tentang Kami
+          </h3>
+          <p class="text-gray-700 leading-relaxed">
+            Klinik Tabalong Husada didirikan pada tanggal 1 Januari 2000 dan
+            berlokasi di Jalan Ir. PHM Noor RT.01 No. 71 Kota Tanjung,
+            Kabupaten Tabalong. Klinik kami terletak di pusat kota yang
+            strategis dengan akses mudah dijangkau. Kami menyediakan layanan
+            kesehatan berkualitas untuk memudahkan warga Kabupaten Tabalong.
+          </p>
+        </div>
+        <!-- Vision & Mission -->
+        <div class="bg-[#16365d] text-white p-6 rounded-lg shadow-md">
+          <h3 class="text-2xl font-semibold mb-4">Visi & Misi</h3>
+          <div class="space-y-4">
+            <div>
+              <h4 class="text-lg font-semibold mb-2">Visi</h4>
+              <p>
+                Menjadikan Klinik Utama yang memberikan pelayanan profesional
+                dan berkualitas yang terjangkau bagi masyarakat.
+              </p>
             </div>
-          </div>
-          <!-- Doctor Card -->
-          <div class="bg-white border rounded-lg shadow-lg overflow-hidden">
-            <img
-              src="https://via.placeholder.com/500x300"
-              alt="Drg. Agung Budiarto"
-              class="w-full h-40 object-cover"
-            />
-            <div class="p-6">
-              <h3 class="text-xl font-semibold mb-2">Drg. Agung Budiarto</h3>
-              <p class="text-gray-600">Dokter Gigi</p>
-            </div>
-          </div>
-          <!-- Doctor Card -->
-          <div class="bg-white border rounded-lg shadow-lg overflow-hidden">
-            <img
-              src="https://via.placeholder.com/500x300"
-              alt="Dr. Yusriza Febri Ramadhan"
-              class="w-full h-40 object-cover"
-            />
-            <div class="p-6">
-              <h3 class="text-xl font-semibold mb-2">
-                Dr. Yusriza Febri Ramadhan
-              </h3>
-              <p class="text-gray-600">Dokter Umum</p>
+            <div>
+              <h4 class="text-lg font-semibold mb-2">Misi</h4>
+              <ul class="list-disc pl-5">
+                <li>
+                  Pengelolaan klinik secara profesional untuk efisiensi dan
+                  efektivitas tinggi.
+                </li>
+                <li>
+                  Pelayanan dasar dan spesialistik yang profesional dan
+                  terjangkau.
+                </li>
+                <li>
+                  Upaya berkelanjutan untuk meningkatkan mutu pelayanan.
+                </li>
+                <li>
+                  Partisipasi dalam pelayanan sosial untuk masyarakat miskin
+                  dan sekitar klinik.
+                </li>
+                <li>
+                  Pelayanan kesehatan perorangan dan sosial bagi masyarakat
+                  miskin.
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Pendaftaran Online Section -->
-    <section id="registration" class="p-6 bg-white">
-      <div class="container mx-auto">
-        <h2 class="text-2xl md:text-3xl font-bold mb-6">Pendaftaran Online</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div
-            class="p-6 border rounded-lg hover:bg-gray-100 transition duration-300"
-          >
-            <h3 class="text-xl font-semibold mb-2">Pasien Umum</h3>
-            <p>Daftarkan diri Anda sebagai pasien umum secara online.</p>
-          </div>
-          <div
-            class="p-6 border rounded-lg hover:bg-gray-100 transition duration-300"
-          >
-            <h3 class="text-xl font-semibold mb-2">Medical Check Up (MCU)</h3>
-            <p>
-              Daftarkan diri Anda untuk Medical Check Up (MCU) secara online.
-            </p>
-          </div>
+  <!-- Footer -->
+  <!-- Footer -->
+  <footer class="bg-[#16365d] text-white py-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- About Us -->
+        <div>
+          <h4 class="text-xl font-bold mb-4">Tentang Klinik</h4>
+          <p>
+            Klinik Tabalong Husada berkomitmen untuk memberikan pelayanan
+            kesehatan yang profesional dan berkualitas.
+          </p>
+        </div>
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-xl font-bold mb-4">Link Cepat</h4>
+          <ul>
+            <li>
+              <a href="" class="hover:text-[#6f8e30] transition duration-300">Beranda</a>
+            </li>
+            <li>
+              <a href="#services" class="hover:text-[#6f8e30] transition duration-300">Layanan Kami</a>
+            </li>
+            <li>
+              <a href="#doctors" class="hover:text-[#6f8e30] transition duration-300">Dokter</a>
+            </li>
+            <li>
+              <a href="#registration" class="hover:text-[#6f8e30] transition duration-300">Pendaftaran Online</a>
+            </li>
+            <li>
+              <a href="#contact" class="hover:text-[#6f8e30] transition duration-300">Kontak Kami</a>
+            </li>
+            <li>
+              <a href="#about" class="hover:text-[#6f8e30] transition duration-300">Tentang Kami</a>
+            </li>
+            <li>
+              <a href="#vision-mission" class="hover:text-[#6f8e30] transition duration-300">Visi & Misi</a>
+            </li>
+          </ul>
+        </div>
+        <!-- Contact Information -->
+        <div>
+          <h4 class="text-xl font-bold mb-4">Kontak Kami</h4>
+          <p>No HP: 0813-4686-4988</p>
+          <p>
+            Email:
+            <a href="mailto:info@klinik-tabalonghusada.com"
+              class="hover:text-[#6f8e30] transition duration-300">info@klinik-tabalonghusada.com</a>
+          </p>
+          <p>
+            Alamat: Jalan Ir. PHM Noor RT.01 No. 71 Kota Tanjung Kabupaten
+            Tabalong
+          </p>
         </div>
       </div>
-    </section>
-
-    <!-- Contact & Hours Section -->
-    <section id="contact-hours" class="p-6 bg-white">
-      <div class="container mx-auto">
-        <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center">
-          Kontak & Jam Layanan
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- Contact Information -->
-          <div class="bg-[#f8f9fa] p-6 rounded-lg shadow-lg">
-            <h3 class="text-xl font-semibold mb-4">Kontak Kami</h3>
-            <p class="mb-2">
-              <span class="font-bold">No HP:</span> 0813-4686-4988
-            </p>
-            <p class="mb-2">
-              <span class="font-bold">Email:</span>
-              <a
-                href="mailto:info@klinik-tabalonghusada.com"
-                class="text-[#6f8e30] hover:underline"
-                >info@klinik-tabalonghusada.com</a
-              >
-            </p>
-            <p>
-              <span class="font-bold">Alamat:</span> Jalan Ir. PHM Noor RT.01
-              No. 71 Kota Tanjung Kabupaten Tabalong
-            </p>
-          </div>
-          <!-- Hours of Operation -->
-          <div class="bg-[#f8f9fa] p-6 rounded-lg shadow-lg">
-            <h3 class="text-xl font-semibold mb-4">Jam Layanan</h3>
-            <p class="mb-2"><span class="font-bold">Senin s/d Jumat:</span></p>
-            <p>Pagi 08.00 – 12.00</p>
-            <p>Sore 16.00 – 21.00</p>
-            <p class="mt-4"><span class="font-bold">Sabtu:</span></p>
-            <p>Pagi 08.00 – 12.00</p>
-          </div>
+      <div class="mt-8 border-t border-gray-700 pt-4 text-center">
+        <p>&copy; 2024 Klinik Tabalong Husada. All rights reserved.</p>
+        <div class="mt-2 flex justify-center space-x-4">
+          <a href="#" class="text-white hover:text-[#6f8e30] transition duration-300">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="text-white hover:text-[#6f8e30] transition duration-300">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="text-white hover:text-[#6f8e30] transition duration-300">
+            <i class="fab fa-instagram"></i>
+          </a>
         </div>
       </div>
-    </section>
+    </div>
+  </footer>
 
-    <!-- Tentang Kami Section -->
-    <!-- About & Vision-Mission Section -->
-    <section id="about-vision-mission" class="py-8 bg-gray-50">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold mb-8 text-center text-[#16365d]">
-          Tentang Kami & Visi & Misi
-        </h2>
-        <div class="space-y-8 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-8">
-          <!-- About Us -->
-          <div class="bg-white p-6 rounded-lg shadow-md">
-            <h3 class="text-2xl font-semibold mb-4 text-[#16365d]">
-              Tentang Kami
-            </h3>
-            <p class="text-gray-700 leading-relaxed">
-              Klinik Tabalong Husada didirikan pada tanggal 1 Januari 2000 dan
-              berlokasi di Jalan Ir. PHM Noor RT.01 No. 71 Kota Tanjung,
-              Kabupaten Tabalong. Klinik kami terletak di pusat kota yang
-              strategis dengan akses mudah dijangkau. Kami menyediakan layanan
-              kesehatan berkualitas untuk memudahkan warga Kabupaten Tabalong.
-            </p>
-          </div>
-          <!-- Vision & Mission -->
-          <div class="bg-[#16365d] text-white p-6 rounded-lg shadow-md">
-            <h3 class="text-2xl font-semibold mb-4">Visi & Misi</h3>
-            <div class="space-y-4">
-              <div>
-                <h4 class="text-lg font-semibold mb-2">Visi</h4>
-                <p>
-                  Menjadikan Klinik Utama yang memberikan pelayanan profesional
-                  dan berkualitas yang terjangkau bagi masyarakat.
-                </p>
-              </div>
-              <div>
-                <h4 class="text-lg font-semibold mb-2">Misi</h4>
-                <ul class="list-disc pl-5">
-                  <li>
-                    Pengelolaan klinik secara profesional untuk efisiensi dan
-                    efektivitas tinggi.
-                  </li>
-                  <li>
-                    Pelayanan dasar dan spesialistik yang profesional dan
-                    terjangkau.
-                  </li>
-                  <li>
-                    Upaya berkelanjutan untuk meningkatkan mutu pelayanan.
-                  </li>
-                  <li>
-                    Partisipasi dalam pelayanan sosial untuk masyarakat miskin
-                    dan sekitar klinik.
-                  </li>
-                  <li>
-                    Pelayanan kesehatan perorangan dan sosial bagi masyarakat
-                    miskin.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+  <div id="modalUmum" class="modal fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+    <div class="modal-content bg-white p-6 rounded-lg shadow-lg relative">
+      <button class="close-btn">&times;</button>
+      <h2 class="text-xl font-bold mb-4">Form Pendaftaran Pasien Umum</h2>
+      <form action="pendaftaran_umum.php" method="POST">
+        <div class="mb-4">
+          <label class="block mb-2">Nama</label>
+          <input type="text" name="nama" class="w-full p-2 border rounded" required>
         </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <!-- Footer -->
-    <footer class="bg-[#16365d] text-white py-8">
-      <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- About Us -->
-          <div>
-            <h4 class="text-xl font-bold mb-4">Tentang Klinik</h4>
-            <p>
-              Klinik Tabalong Husada berkomitmen untuk memberikan pelayanan
-              kesehatan yang profesional dan berkualitas.
-            </p>
-          </div>
-          <!-- Quick Links -->
-          <div>
-            <h4 class="text-xl font-bold mb-4">Link Cepat</h4>
-            <ul>
-              <li>
-                <a
-                  href="#services"
-                  class="hover:text-[#6f8e30] transition duration-300"
-                  >Layanan Kami</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#doctors"
-                  class="hover:text-[#6f8e30] transition duration-300"
-                  >Dokter</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#registration"
-                  class="hover:text-[#6f8e30] transition duration-300"
-                  >Pendaftaran Online</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#contact"
-                  class="hover:text-[#6f8e30] transition duration-300"
-                  >Kontak Kami</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#about"
-                  class="hover:text-[#6f8e30] transition duration-300"
-                  >Tentang Kami</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#vision-mission"
-                  class="hover:text-[#6f8e30] transition duration-300"
-                  >Visi & Misi</a
-                >
-              </li>
-            </ul>
-          </div>
-          <!-- Contact Information -->
-          <div>
-            <h4 class="text-xl font-bold mb-4">Kontak Kami</h4>
-            <p>No HP: 0813-4686-4988</p>
-            <p>
-              Email:
-              <a
-                href="mailto:info@klinik-tabalonghusada.com"
-                class="hover:text-[#6f8e30] transition duration-300"
-                >info@klinik-tabalonghusada.com</a
-              >
-            </p>
-            <p>
-              Alamat: Jalan Ir. PHM Noor RT.01 No. 71 Kota Tanjung Kabupaten
-              Tabalong
-            </p>
-          </div>
+        <div class="mb-4">
+          <label class="block mb-2">Nama Orang Tua</label>
+          <input type="text" name="nama_orang_tua" class="w-full p-2 border rounded" required>
         </div>
-        <div class="mt-8 border-t border-gray-700 pt-4 text-center">
-          <p>&copy; 2024 Klinik Tabalong Husada. All rights reserved.</p>
-          <div class="mt-2 flex justify-center space-x-4">
-            <a
-              href="#"
-              class="text-white hover:text-[#6f8e30] transition duration-300"
-            >
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a
-              href="#"
-              class="text-white hover:text-[#6f8e30] transition duration-300"
-            >
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a
-              href="#"
-              class="text-white hover:text-[#6f8e30] transition duration-300"
-            >
-              <i class="fab fa-instagram"></i>
-            </a>
-          </div>
+        <div class="mb-4">
+          <label class="block mb-2">NIK</label>
+          <input type="text" name="nik" class="w-full p-2 border rounded" required>
         </div>
-      </div>
-    </footer>
+        <div class="mb-4">
+          <label class="block mb-2">Tempat Lahir</label>
+          <input type="text" name="tempat_lahir" class="w-full p-2 border rounded" required>
+        </div>
+        <div class="mb-4">
+          <label class="block mb-2">Tanggal Lahir</label>
+          <input type="date" name="tanggal_lahir" class="w-full p-2 border rounded" required>
+        </div>
+        <div class="mb-4">
+          <label class="block mb-2">Jenis Kelamin</label>
+          <select name="jenis_kelamin" class="w-full p-2 border rounded" required>
+            <option value="laki-laki">Laki-laki</option>
+            <option value="perempuan">Perempuan</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label class="block mb-2">Alamat</label>
+          <textarea name="alamat" class="w-full p-2 border rounded" required></textarea>
+        </div>
+        <div class="mb-4">
+          <label class="block mb-2">No. Telepon</label>
+          <input type="text" name="no_telepon" class="w-full p-2 border rounded" required>
+        </div>
+        <div class="mb-4">
+          <label class="block mb-2">Perusahaan</label>
+          <input type="text" name="perusahaan" class="w-full p-2 border rounded" required>
+        </div>
+        <div class="flex justify-end">
+          <button type="button" class="mr-4 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
+            onclick="closeModal('modalUmum')">Batal</button>
+          <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded">Daftar</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
-    <!-- Font Awesome for social media icons -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+  <div id="modalMCU" class="modal fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+    <div class="modal-content bg-white p-6 rounded-lg shadow-lg relative">
+      <button class="close-btn">&times;</button>
+      <h2 class="text-xl font-bold mb-4">Form Pendaftaran Medical Check Up (MCU)</h2>
+      <form action="pendaftaran_mcu.php" method="POST">
+        <div class="mb-4">
+          <label class="block mb-2">Nama</label>
+          <input type="text" name="nama" class="w-full p-2 border rounded" required>
+        </div>
+        <div class="mb-4">
+          <label class="block mb-2">Tempat Lahir</label>
+          <input type="text" name="tempat_lahir" class="w-full p-2 border rounded" required>
+        </div>
+        <div class="mb-4">
+          <label class="block mb-2">Tanggal Lahir</label>
+          <input type="date" name="tanggal_lahir" class="w-full p-2 border rounded" required>
+        </div>
+        <div class="mb-4">
+          <label class="block mb-2">NIK</label>
+          <input type="text" name="nik" class="w-full p-2 border rounded" required>
+        </div>
+        <div class="mb-4">
+          <label class="block mb-2">Jenis Kelamin</label>
+          <select name="jenis_kelamin" class="w-full p-2 border rounded" required>
+            <option value="laki-laki">Laki-laki</option>
+            <option value="perempuan">Perempuan</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label class="block mb-2">Umur</label>
+          <input type="number" name="umur" class="w-full p-2 border rounded" required>
+        </div>
+        <div class="mb-4">
+          <label class="block mb-2">Alamat</label>
+          <textarea name="alamat" class="w-full p-2 border rounded" required></textarea>
+        </div>
+        <div class="mb-4">
+          <label class="block mb-2">Telepon</label>
+          <input type="text" name="telepon" class="w-full p-2 border rounded" required>
+        </div>
+        <div class="flex justify-end">
+          <button type="button" class="mr-4 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
+            onclick="closeModal('modalMCU')">Batal</button>
+          <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded">Daftar</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
-    <script>
-      document.getElementById("menu-btn").addEventListener("click", () => {
-        const menu = document.querySelector("nav ul");
-        menu.classList.toggle("hidden");
+  <!-- Font Awesome for social media icons -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
+  <script>
+    document.getElementById("menu-btn").addEventListener("click", () => {
+      const menu = document.querySelector("nav ul");
+      menu.classList.toggle("hidden");
+    });
+
+    function openModal(modalId) {
+      document.getElementById(modalId).classList.add('active');
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.remove('active');
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.close-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const modal = e.target.closest('.modal');
+          modal.classList.remove('active');
+        });
       });
-    </script>
-  </body>
+
+      window.addEventListener('click', (e) => {
+        if (e.target.classList.contains('modal')) {
+          e.target.classList.remove('active');
+        }
+      });
+    });
+
+  </script>
+</body>
+
 </html>
