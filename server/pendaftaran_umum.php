@@ -17,13 +17,13 @@ $sql = "INSERT INTO pendaftaran_umum (nama, nama_orang_tua, nik, tempat_lahir, t
 if ($conn->query($sql) === TRUE) {
     echo "<script>
         alert('Pendaftaran Berhasil');
-        window.location.href = 'index.html';
+        window.location.href = '../index.html';
     </script>";
 } else {
     $error = $conn->error;
     echo "<script>
         alert('Pendaftaran Gagal: $error');
-        window.location.href = 'index.html';
+        window.location.href = '../index.html';
     </script>";
 }
 

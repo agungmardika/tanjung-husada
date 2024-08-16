@@ -18,13 +18,13 @@ $sql = "INSERT INTO pendaftaran_mcu (nama, tempat_lahir, tanggal_lahir, nik, jen
 if ($conn->query($sql) === TRUE) {
     echo "<script>
         alert('Pendaftaran Berhasil');
-        window.location.href = 'index.html';
+        window.location.href = '../index.html';
     </script>";
 } else {
     $error = $conn->error;
     echo "<script>
         alert('Pendaftaran Gagal: $error');
-        window.location.href = 'index.html';
+        window.location.href = '../index.html';
     </script>";
 }
 
